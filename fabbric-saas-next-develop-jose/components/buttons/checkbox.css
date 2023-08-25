@@ -1,0 +1,44 @@
+.checkbox-wrapper input[type="checkbox"] {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+    /* creating a custom design */
+    width: 0.9em;
+    height: 0.9em;
+    /* border-radius: 0.15em; */
+    margin-right: 0.5em;
+    border: 0.15em solid #7745FF;
+    outline: none;
+    cursor: pointer;
+    position: relative; /* Agregamos esta línea para que podamos posicionar el pseudo-elemento */
+  }
+  
+  /* Utilizamos :checked para aplicar estilos cuando el checkbox está marcado */
+  .checkbox-wrapper input[type="checkbox"]:checked {
+    background-color: #7745FF;
+  }
+  
+  /* Utilizamos ::before para agregar el aspa al pseudo-elemento */
+  .checkbox-wrapper input[type="checkbox"]:checked::before {
+    content: "\2714"; /* Código Unicode para el carácter "✔" */
+    font-size: 1.5em;
+    color: white; /* Cambiamos el color del aspa al blanco */
+    position: absolute;
+    right: 1px;
+    top: -5px;
+  }
+  
+  /* Resto de los estilos se mantienen igual */
+  .checkbox-wrapper input[type="checkbox"]:disabled {
+    border-color: #7745FF;
+    background-color: #7745FF;
+  }
+  
+  .checkbox-wrapper input[type="checkbox"]:disabled + span {
+    color: #7745FF;
+  }
+  
+  .checkbox-wrapper input[type="checkbox"]:focus {
+    box-shadow: 0 0 20px #7745FF;
+  }
+  

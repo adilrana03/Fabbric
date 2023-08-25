@@ -1,0 +1,129 @@
+/* Sidebar CSS */
+
+body {
+    background: white!important;
+}
+
+.text-primary {
+    color: #7745FF; 
+}
+input {
+    color: #000;
+    padding-top: 0;
+}
+input:focus {
+    color: #000;
+}
+
+.btn-submit-primary {
+    color: #000;
+    background: #AFFF00;
+    height: 25px;
+    width: 123px;
+    flex-shrink: 0;
+}
+
+#login-form input,
+#register-form input {
+    border-bottom: 1px solid #7745FF;
+    font-size: 14px;
+}
+
+#login-form input::placeholder ,
+#register-form input::placeholder {
+    color: #7745FF;
+    text-transform: uppercase;
+}
+#dashboard-sidebar .primaryLink.active {
+    background: #7745FF;
+    color: #fff;
+}
+
+#dashboard-sidebar .primaryLink.active a {
+    color: #fff;
+}
+
+#dashboard-sidebar .primaryLink.active span {
+    color: #fff;
+}
+
+#dashboard-sidebar .primaryLink:hover {
+    background: #7745FF;
+    color: #fff;
+}
+
+#dashboard-sidebar .primaryLink:hover span{
+    color: #fff;
+}
+
+.badge-pending  {
+    background: #7745FF;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.badge-received {
+    background: #AFFF00;
+    color: #000;
+    text-transform: uppercase;
+}
+
+#dashboard-navbar .profile-popover {
+    color: #7745FF;
+}
+
+#dashboard-navbar .profile-popover .popover-header {
+    text-transform: uppercase;
+    border-bottom: 1px solid #7745FF;
+    font-size: 16px;
+}
+
+#dashboard-navbar .profile-popover .link-item{
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#dashboard-navbar .profile-popover .link-item:hover{
+    background: #7745FF;
+    color: #fff;
+}
+
+#dashboard-profile label {
+    color: #7745FF;
+    text-transform: uppercase;
+    font-size: 12px;
+    width: 100%;
+    display: block;
+}
+
+#dashboard-profile input,
+#dashboard-profile select {
+    color: #000;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-bottom: 1px solid #7745FF;
+    width: 100%;
+    display: block;
+    padding-bottom: 1px;
+}
+
+#dashboard-profile input:focus,
+#dashboard-profile select:focus  {
+    border-radius: 0;
+    border-bottom: 2px solid #7745FF;
+    outline: 0;
+    padding-bottom: 0;
+}
+
+#dashboard-profile input:focus-visible ,
+#dashboard-profile select:focus-visible {
+    outline: 0;
+}
+
+
+#dashboard-profile #profile-img .camera-icon {
+    height: 150px;
+    width: 150px;
+    color: #999;
+}
