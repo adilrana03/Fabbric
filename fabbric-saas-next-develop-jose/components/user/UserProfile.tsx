@@ -11,6 +11,7 @@ import {RxCross2} from 'react-icons/rx';
 import 'react-toastify/dist/ReactToastify.css';
 import Image from 'next/image';
 import VisaImage from '@/assets/Visa.png';
+import Card from '@/components/Card/Card'
 
 interface Country {
 	UUID: string;
@@ -77,6 +78,13 @@ const UserProfile =
 			>(
 				[],
 			);
+		const [
+			open,
+			setOpen,
+		] =
+			useState<boolean>(
+				true,
+			); // Ensure to provide the correct initial value
 
 		useEffect(() => {
 			async function fetchData() {
@@ -162,7 +170,7 @@ const UserProfile =
 		return (
 			<div
 				id='dashboard-profile'
-				className='py-12 px-6 sm:ml-64 bg-white'>
+				className='py-12 px-6 sm:ml-64 bg-white relative '>
 				<div className='p-4'>
 					<form>
 						<div className='grid grid-flow-col gap-2'>
@@ -235,7 +243,7 @@ const UserProfile =
 									/>
 								</label>
 							</div>
-							<div className='p-4'>
+							<div className='p-4 '>
 								<div className='grid gap-6 mb-5 md:grid-cols-2'>
 									<div>
 										<label
@@ -437,10 +445,25 @@ const UserProfile =
 								</div>
 							</div>
 						</div>
+						{/* ----------------------------------------------------= */}
+						{open ? (
+							<div className='text-center '>
+								open
+								?{' '}
+								<Card
+									setState={
+										setOpen
+									}
+								/>
+							</div>
+						) : (
+							''
+						)}
+						{/* ------------------------------------ABOUT ME START FROM HERE----------------------------------- */}
 						<div>
-							<h2 className='w-full bg-violet-500 text-white mb-5'>
-								About
-								Me
+							<h2 className='w-full bg-violet-500 text-white mb-5 pl-3 p-1'>
+								ABOUT
+								ME
 							</h2>
 							<div className='grid gap-6 mb-6 md:grid-cols-2'>
 								<div>
@@ -505,9 +528,9 @@ const UserProfile =
 							</div>
 						</div>
 						<div className='mb-4'>
-							<h2 className='w-full bg-violet-500 text-white mb-5'>
-								External
-								Link
+							<h2 className='w-full bg-violet-500 text-white mb-5 pl-3 p-1'>
+								EXTERNAL
+								LINK
 							</h2>
 							<div className='grid gap-3 mb-6 md:grid-cols-3'>
 								<div>
@@ -596,10 +619,10 @@ const UserProfile =
 
 						{/* -----------------------------Billing Address HERE------- */}
 
-						<div className='mb-4'>
-							<h2 className='w-full bg-violet-500 text-white mb-5'>
-								Billing
-								Address
+						<div className='mb-4 '>
+							<h2 className='w-full bg-violet-500 text-white mb-5 pl-3 p-1'>
+								BILLING
+								ADDRESS
 							</h2>
 							<div className='grid gap-4 mb-6 md:grid-cols-2'>
 								<div>
@@ -649,8 +672,8 @@ const UserProfile =
 									<label
 										htmlFor='name'
 										className='font-light text-gray-300 text-sm'>
-										Company
-										Name
+										COMPANY
+										NAME
 									</label>
 									<input
 										type='text'
@@ -691,7 +714,7 @@ const UserProfile =
 								<label
 									htmlFor='address'
 									className=''>
-									Address
+									ADDRESS
 								</label>
 								<input
 									type='text'
@@ -837,15 +860,22 @@ const UserProfile =
 								/>
 							</div>
 						</div>
+
 						{/* -------------------------------------BILLING ADDRESS ENDS HERE ---------------------*/}
 
 						{/* -------------------------------------PAYMENT METHODS STARTS HERE ---------------------*/}
-						<div className='mb-5'>
-							<h2 className='w-full bg-violet-500 text-white mb-5'>
-								Payment
-								Methods
+						<div className='mb-5 '>
+							<h2 className='w-full bg-violet-500 text-white mb-5 pl-3 p-1'>
+								PAYMENT
+								METHODS
 							</h2>
-							<div className='flex justify-items-start text-xs'>
+							<div
+								className='flex justify-items-start text-xs'
+								onClick={() => {
+									setOpen(
+										true,
+									);
+								}}>
 								<RxCross2 className='mr-4' />
 								<Image
 									className='mr-4'
@@ -879,7 +909,7 @@ const UserProfile =
 						</div>
 						{/* --------------------------------SECURITY STARTS FROM HERE---------------- */}
 						<div>
-							<h2 className='w-full bg-violet-500 text-white mb-5'>
+							<h2 className='w-full bg-violet-500 text-white mb-5 pl-3 p-1'>
 								SECURITY
 							</h2>
 							<div className='grid gap-4 mb-6 md:grid-cols-2'>
@@ -926,7 +956,6 @@ const UserProfile =
 								</div>
 							</div>
 						</div>
-
 						<div className='text-center mt-10 mb-10 '>
 							<button className='btn-submit-primary mr-4'>
 								Save

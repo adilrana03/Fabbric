@@ -194,8 +194,10 @@ const NavBarDashboard =
 																	</Link>
 																</li>
 																<li className='link-item px-4 py-2'>
-																	My
-																	Plans
+																	<Link href='/account/myplans'>
+																		My
+																		Plans
+																	</Link>
 																</li>
 																<li className='link-item px-4 py-2'>
 																	<a

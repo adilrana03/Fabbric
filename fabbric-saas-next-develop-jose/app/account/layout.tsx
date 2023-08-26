@@ -16,12 +16,11 @@ const Layout = async ({ children }: LayoutProps) => {
 
     const session = await getServerSession(options)
     const props = { session: session }
-    
+
     return (
             <main>
                 <NavBarDashboard props={props} />
                 <SidebarAccount  />
-
                 {children}
                 <FooterDashboard/>
             </main>
