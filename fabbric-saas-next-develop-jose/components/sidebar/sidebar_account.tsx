@@ -46,7 +46,13 @@ const SidebarAccount =
 										sidebarLinkStyle
 									}>
 									<span className='uppercase'>
-										Profile
+										PROFILE
+										<span className='ml-20'>
+											{pathname ==
+											'/account/profile'
+												? ` →`
+												: ''}
+										</span>
 									</span>
 								</Link>
 							</li>
@@ -63,8 +69,14 @@ const SidebarAccount =
 										sidebarLinkStyle
 									}>
 									<span className='uppercase'>
-										My
-										Plans
+										MY
+										PLANS
+										<span className='ml-16'>
+										{pathname ==
+										'/account/myplans'
+											? '     →'
+											: ''}
+										</span>
 									</span>
 								</Link>
 							</li>

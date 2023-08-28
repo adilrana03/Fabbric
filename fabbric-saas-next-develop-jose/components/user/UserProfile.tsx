@@ -11,7 +11,7 @@ import {RxCross2} from 'react-icons/rx';
 import 'react-toastify/dist/ReactToastify.css';
 import Image from 'next/image';
 import VisaImage from '@/assets/Visa.png';
-import Card from '@/components/Card/Card'
+import Card from '@/components/Card/Card';
 
 interface Country {
 	UUID: string;
@@ -43,19 +43,21 @@ const UserProfile =
 						'',
 					last_name:
 						'',
-					email: '',
-					telephone:
+					address_street:
 						'',
-					address: '',
-					address_city:
+					address_apartment:
 						'',
 					address_zip_code:
+						'',
+					address_city:
 						'',
 					address_province:
 						'',
 					address_country:
 						'',
-					country: '',
+					email: '',
+					telephone:
+						'',
 					birthday: '',
 					job_position:
 						'',
@@ -66,6 +68,30 @@ const UserProfile =
 					twitch: '',
 					youtube: '',
 					website: '',
+					billing_name:
+						'',
+					billing_lastname:
+						'',
+					billing_company:
+						'',
+					billing_cif:
+						'',
+					billing_address:
+						'',
+					billing_zipcode:
+						'',
+					billing_city:
+						'',
+					billing_provinance:
+						'',
+					billing_country:
+						'',
+					billing_number:
+						'',
+					billing_email:
+						'',
+					password: '',
+					newPass: '',
 				},
 			);
 
@@ -83,7 +109,7 @@ const UserProfile =
 			setOpen,
 		] =
 			useState<boolean>(
-				true,
+				false,
 			); // Ensure to provide the correct initial value
 
 		useEffect(() => {
@@ -133,22 +159,99 @@ const UserProfile =
 			userData
 		) {
 			formValues.first_name =
-				userData.first_name;
+				userData.first_name ||
+				'';
 			formValues.last_name =
-				userData.last_name;
-			formValues.email =
-				userData.email;
-			formValues.telephone =
-				userData.telephone;
-			formValues.address_city =
-				userData.address_city;
+				userData.last_name ||
+				'';
+			formValues.address_street =
+				userData.address_street ||
+				'';
+			formValues.address_apartment =
+				userData.address_apartment ||
+				'';
 			formValues.address_zip_code =
-				userData.address_zip_code;
+				userData.address_zip_code ||
+				'';
+			formValues.address_city =
+				userData.address_city ||
+				'';
 			formValues.address_province =
-				userData.address_province;
+				userData.address_province ||
+				'';
 			formValues.address_country =
-				userData.address_country;
-		}
+				userData.address_country ||
+				'';
+			formValues.email =
+				userData.email ||
+				'';
+			formValues.telephone =
+				userData.telephone ||
+				'';
+			formValues.birthday =
+				userData.birthday ||
+				'';
+			formValues.job_position =
+				userData.job_position ||
+				'';
+			formValues.biography =
+				userData.biography ||
+				'';
+			formValues.instagram =
+				userData.instagram ||
+				'';
+			formValues.twitch =
+				userData.twitch ||
+				'';
+			formValues.youtube =
+				userData.youtube ||
+				'';
+			formValues.website =
+				userData.website ||
+				'';
+			formValues.billing_name =
+				userData.billing_name ||
+				'';
+			formValues.billing_lastname =
+				userData.billing_lastname ||
+				'';
+			formValues.billing_company =
+				userData.billing_company ||
+				'';
+			formValues.billing_cif =
+				userData.billing_cif ||
+				'';
+			formValues.billing_address =
+				userData.billing_address ||
+				'';
+			formValues.billing_zipcode =
+				userData.billing_zipcode ||
+				'';
+			formValues.billing_city =
+				userData.billing_city ||
+				'';
+			formValues.billing_provinance =
+				userData.billing_provinance ||
+				'';
+			formValues.billing_country =
+				userData.billing_country ||
+				'';
+			formValues.billing_number =
+				userData.billing_number ||
+				'';
+			formValues.billing_email =
+				userData.billing_email ||
+				'';
+			formValues.password =
+				userData.password ||
+				'';
+			formValues.newPass =
+				userData.newPass ||
+				'';
+
+
+
+					}
 
 		const handleChange =
 			(
@@ -303,6 +406,12 @@ const UserProfile =
 										className=''
 										placeholder='STREET AND HOUSE NUMBER'
 										required
+										value={
+											formValues.address_street
+										}
+										onChange={
+											handleChange
+										}
 									/>
 								</div>
 								<div className='mb-4'>
@@ -319,6 +428,12 @@ const UserProfile =
 										id='address2'
 										className=''
 										placeholder='APARTMENT, SUITE, ETC. (OPTIONAL)'
+										value={
+											formValues.address_apartment
+										}
+										onChange={
+											handleChange
+										}
 									/>
 								</div>
 								<div className='grid gap-6 mb-5 md:grid-cols-2'>
@@ -335,6 +450,12 @@ const UserProfile =
 											className=''
 											placeholder='00000'
 											required
+											value={
+												formValues.address_zip_code
+											}
+											onChange={
+												handleChange
+											}
 										/>
 									</div>
 									<div>
@@ -349,6 +470,12 @@ const UserProfile =
 											className=''
 											placeholder='LOREM IPSUM'
 											required
+											value={
+												formValues.address_city
+											}
+											onChange={
+												handleChange
+											}
 										/>
 									</div>
 								</div>
@@ -365,6 +492,12 @@ const UserProfile =
 											className=''
 											placeholder='LOREM IPSUM'
 											required
+											value={
+												formValues.address_province
+											}
+											onChange={
+												handleChange
+											}
 										/>
 									</div>
 									<div>
@@ -378,7 +511,7 @@ const UserProfile =
 											className=''
 											required
 											value={
-												formValues.country
+												formValues.address_country
 											}>
 											{countries.map(
 												(
@@ -477,7 +610,7 @@ const UserProfile =
 										placeholder='DD/MM/YYYY'
 										required
 										value={
-											formValues.telephone
+											formValues.birthday
 										}
 										onChange={
 											handleChange
@@ -498,7 +631,7 @@ const UserProfile =
 										placeholder='LOREM IPSUM'
 										required
 										value={
-											formValues.email
+											formValues.job_position
 										}
 										onChange={
 											handleChange
@@ -607,7 +740,7 @@ const UserProfile =
 									placeholder='LOREM IPSUM'
 									required
 									value={
-										formValues.biography
+										formValues.website
 									}
 									onChange={
 										handleChange
@@ -638,7 +771,7 @@ const UserProfile =
 										placeholder='Lorum Ispum'
 										required
 										value={
-											formValues.first_name
+											formValues.billing_name
 										}
 										onChange={
 											handleChange
@@ -659,7 +792,7 @@ const UserProfile =
 										placeholder='LOREM IPSUM'
 										required
 										value={
-											formValues.last_name
+											formValues.billing_lastname
 										}
 										onChange={
 											handleChange
@@ -682,7 +815,7 @@ const UserProfile =
 										placeholder=''
 										required
 										value={
-											formValues.last_name
+											formValues.billing_company
 										}
 										onChange={
 											handleChange
@@ -702,7 +835,7 @@ const UserProfile =
 										placeholder=''
 										required
 										value={
-											formValues.last_name
+											formValues.billing_cif
 										}
 										onChange={
 											handleChange
@@ -723,7 +856,7 @@ const UserProfile =
 									placeholder=''
 									required
 									value={
-										formValues.address
+										formValues.billing_address
 									}
 									onChange={
 										handleChange
@@ -746,7 +879,7 @@ const UserProfile =
 									placeholder=''
 									required
 									value={
-										formValues.first_name
+										formValues.billing_zipcode
 									}
 									onChange={
 										handleChange
@@ -766,7 +899,7 @@ const UserProfile =
 									placeholder=''
 									required
 									value={
-										formValues.first_name
+										formValues.billing_city
 									}
 									onChange={
 										handleChange
@@ -788,7 +921,7 @@ const UserProfile =
 									placeholder=''
 									required
 									value={
-										formValues.first_name
+										formValues.billing_provinance
 									}
 									onChange={
 										handleChange
@@ -808,7 +941,7 @@ const UserProfile =
 									placeholder=''
 									required
 									value={
-										formValues.first_name
+										formValues.billing_country
 									}
 									onChange={
 										handleChange
@@ -832,7 +965,7 @@ const UserProfile =
 									placeholder=''
 									required
 									value={
-										formValues.first_name
+										formValues.billing_number
 									}
 									onChange={
 										handleChange
@@ -852,7 +985,7 @@ const UserProfile =
 									placeholder=''
 									required
 									value={
-										formValues.first_name
+										formValues.billing_email
 									}
 									onChange={
 										handleChange
@@ -870,7 +1003,7 @@ const UserProfile =
 								METHODS
 							</h2>
 							<div
-								className='flex justify-items-start text-xs'
+								className='flex justify-items-start text-xs cursor-pointer'
 								onClick={() => {
 									setOpen(
 										true,
@@ -898,7 +1031,13 @@ const UserProfile =
 								</p>
 							</div>
 
-							<div className='flex mt-4 align-text-bottom font-light text-xs'>
+							<div
+								className='flex mt-4 align-text-bottom font-light text-xs cursor-pointer'
+								onClick={() => {
+									setOpen(
+										true,
+									);
+								}}>
 								<AiOutlinePlus className='mr-4' />
 								<h4>
 									ADD
@@ -926,7 +1065,7 @@ const UserProfile =
 										placeholder='**********'
 										required
 										value={
-											formValues.first_name
+											formValues.password
 										}
 										onChange={
 											handleChange
@@ -947,7 +1086,7 @@ const UserProfile =
 										placeholder=''
 										required
 										value={
-											formValues.first_name
+											formValues.newPass
 										}
 										onChange={
 											handleChange
