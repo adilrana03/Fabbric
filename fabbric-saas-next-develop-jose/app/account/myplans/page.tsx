@@ -3,7 +3,7 @@ import React, {
 	useState,
 	useEffect,
 } from 'react';
-import UpgradeCard from '@/components/upgradeCard/upgradeCard';
+import UpgradeCard from '@/components/upgradeCard/UpgradeCard';
 
 const MyPlans =
 	() => {
@@ -96,7 +96,7 @@ const MyPlans =
 								</p>
 							</div>
 							<div className='pt-4 pb-2 '>
-								<button className='bg-lime-400 text-gray-900 font-light py-1 px-10 rounded border border-lime-400 text-xs '>
+								<button className='bg-lime-400 text-gray-900 font-light py-1 px-10 rounded border border-lime-400 text-xs ' onClick={()=>{setOpenCard(true)}}>
 									{!plan
 										? 'UPGRADE PLAN'
 										: 'DOWNGRADE PLAN'}
@@ -110,9 +110,9 @@ const MyPlans =
 				<div className=''>
 					{openCard ? (
 						<UpgradeCard
-							setOpenCard={
-								setOpenCard
-							}
+						setOpenCard={
+							setOpenCard
+						}
 						/>
 					) : (
 						''
@@ -242,7 +242,13 @@ const MyPlans =
 					</div>
 				</div>
 				<div className='flex justify-center m-2 mr-[-10px] mt-8'>
-					<button className='text-gray-900 text-xs px-16 bg-lime-300 py-1 mr-4 ' onClick={() => setOpenCard(true)} >
+					<button
+						className='text-gray-900 text-xs px-16 bg-lime-300 py-1 mr-4 '
+						onClick={() =>
+							setOpenCard(
+								true,
+							)
+						}>
 						SAVE
 					</button>
 					<button className='text-gray-900 text-xs px-16 bg-white border border-lime-400'>

@@ -1,94 +1,101 @@
-'use client';
-import React from 'react';
-
-interface CardProps {
-	setOpenCard: (
-		open: boolean,
-	) => void;
+'use client'
+import React,{useState} from 'react';
+import {BsFillCheckSquareFill} from 'react-icons/bs'
+interface card {
+	setOpenCard: boolean | any
 }
 
-const UpgradeCard: React.FC<
-	CardProps
-> = ({
-	setOpenCard,
-}) => {
-	const handleOpen =
-		() => {
-			setOpenCard(
-				false,
-			); // Or setOpenCard(true) if that's the name of the state setter prop
-		};
-	return (
-		<div className='card p-6 border rounded-md max-w-[480px] bg-white z-10 mx-auto fixed left-1/2 transform -translate-x-1/2'>
-			<h2 className='text-md font-bold mb-4 text-indigo-500'>
-				Your
-			</h2>
-			<h5 className='text-xs mb-2 text-indigo-500'>
-				You
-				are
-				now
-				on
-				the
-				FABBRIC
-				PLUS
-				PLAN
-			</h5>
-			<h5 className='text-xs mb-2 text-indigo-500'>
-				You
-				were
-				charged
-				a
-				prorated
-				amount
-				of
-				-$49.00
-				immediately
-				for
-				the
-				remainder
-				of
-				this
-				billing
-				cycle.
-				You
-				will
-				be
-				charged
-				$49.00/monthly
-				starting
-				at
-				the
-				next
-				cycle.
-			</h5>
-			<p className='text-xs text-gray-700'>
-				Please
-				email
-				us
-				at
-				creators@fabbric.com
-				if
-				you
-				have
-				any
-				questions.
-			</p>
+const upgradeCard =({setOpenCard}: card) => {
+	// const [openCard, setOpenCard] = useState(true);
 
-			<div className='flex justify-center mt-4 space-x-4'>
-				<button
-					className='add-button bg-lime-400 text-black px-12 rounded'
-					onClick={()=>{handleOpen()}}>
-					THAT'S
-					IT
-				</button>
-				<button
-					className='add-button bg-lime-400 text-black px-12 rounded'
-					onClick={()=>{handleOpen()}}>
-					NOPE
-				</button>
+		return (
+			<div className='h-[377px] w-[621px] p-8 border text-center shadow-xl fixed z-10 bg-white bottom-[220px] right-[290px]'>
+				<div className='text-center text-lime-400'>
+					<BsFillCheckSquareFill className='text-lime-400 mb-5 mx-auto text-2xl' />
+				</div>
+
+				<h2 className='text-xl  text-indigo-600 mb-3 font-light'>
+					YOUR
+					SUBSCRIPTION
+					HAS
+					BEEN
+					UPGRADED
+				</h2>
+				<h4 className=' mb-5 text-sm font-light'>
+					You
+					are
+					now
+					on
+					the
+					FABBRIC
+					PLUS
+					PLAN.
+				</h4>
+				<h2 className='mb-5 text-sm font-light'>
+					You
+					were
+					charged
+					a
+					prorated
+					amount
+					of
+					-$49.00
+					immediately
+					for
+					the
+					remainder
+					of
+					this
+					billing
+					cycle.
+					You
+					will
+					be
+					charged
+					$49.00/monthly
+					starting
+					at
+					the
+					next
+					cycle.
+				</h2>
+				<h2 className='text-sm font-light'>
+					Please
+					email
+					us
+					at
+					<span className='font-bold ml-1 mr-1'>
+						creators@fabbric.com
+					</span>
+					if
+					you
+					have
+					any
+					query
+				</h2>
+				<div className='flex flex-col w-[300px] text-center ml-36 mt-8'>
+					<button
+						className='bg-lime-400 text-black p-1 px-2 block mb-4 text-sm cursor-pointer'
+						onClick={() =>
+							setOpenCard(
+								false,
+							)
+						}>
+						THAT'S
+						IT
+					</button>
+					<button
+						className='border border-green-300 text-black p-1 px-2 text-sm cursor-pointer'
+						onClick={() =>
+							setOpenCard(
+								false,
+							)
+						}>
+						NOPE
+					</button>
+				</div>
 			</div>
-		</div>
-	);
-};
+		);
+	};
 
-export default UpgradeCard;
+export default upgradeCard;
